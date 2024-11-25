@@ -9,10 +9,12 @@ const initialState: typeInitialState = {
   requestStatus: '',
   exampleErrors: {},
   data: {},
-  categories: null,
 };
 
-export default function reducer(state = initialState, action: actionType) {
+export default function reducer(
+  state: typeInitialState = initialState,
+  action: actionType
+): typeInitialState {
   switch (action.type) {
     case EXAMPLE_REQUEST: {
       return {
@@ -22,19 +24,17 @@ export default function reducer(state = initialState, action: actionType) {
       };
     }
     case EXAMPLE_SUCCESS: {
-      console.log(action);
       return {
         requestStatus: 'ok',
-        data: action?.payload?.data,
+        data: action?.payload?.data || state.data,
       };
     }
     case EXAMPLE_FAIL: {
       return {
         requestStatus: 'fail',
-        exampleErrors: action,
+        exampleErrors: action.payload || {},
       };
     }
-
     default: {
       return state;
     }

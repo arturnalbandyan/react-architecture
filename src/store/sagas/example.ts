@@ -16,7 +16,7 @@ function* exampleFunction(action: any) {
       type: EXAMPLE_SUCCESS,
       payload: { data },
     });
-    console.log('saga');
+    console.log('saga', data);
     // if (action.payload.cb) {
     //     action.payload.cb(null, data);
     // }

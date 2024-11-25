@@ -1,12 +1,11 @@
 export interface typeInitialState {
   requestStatus: string;
-  exampleErrors: object;
-  data: any;
-  categories: any[] | null;
+  exampleErrors?: object;
+  data?: any;
 }
 
 export interface PayloadType {
-  data: string;
+  data?: string;
 }
 
 export interface actionType {
